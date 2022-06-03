@@ -76,7 +76,7 @@ public class MemberController {
 	
 	@RequestMapping (path = "/apis/board", produces = "application/json")
 	public @ResponseBody Object apiBoard() {
-		
+		System.out.println("hihi");
 		Map<String, Object> res =  new HashMap<String, Object>();
 		try {
 			

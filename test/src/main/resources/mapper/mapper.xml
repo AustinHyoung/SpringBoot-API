@@ -31,4 +31,8 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		INSERT INTO member VALUES(#{id}, #{password}, #{name}, #{phone}, #{email}, #{gender}, #{birth}, now())
 	</insert>
 	
+	<select id="getQnaDetail" parameterType="Map" resultType="Map">
+		SELECT * FROM board
+		WHERE NO = #{no}
+	</select>
 </mapper>

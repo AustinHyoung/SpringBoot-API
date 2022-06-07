@@ -23,4 +23,7 @@ public interface MemberService {
 	
 	@Transactional
 	public Map<String, Object> insertUser(Map<String, Object> param) throws SQLException;
+	
+	@Transactional
+	public Map<String, Object> getQnaDetail(Map<String, Object> param) throws SQLException;
 }

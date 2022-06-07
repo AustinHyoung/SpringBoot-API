@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -76,7 +77,6 @@ public class MemberController {
 	
 	@RequestMapping (path = "/apis/board", produces = "application/json")
 	public @ResponseBody Object apiBoard() {
-		System.out.println("hihi");
 		Map<String, Object> res =  new HashMap<String, Object>();
 		try {
 			
@@ -87,6 +87,18 @@ public class MemberController {
 			return e;
 		}
 		
+	}
+	
+	@RequestMapping (path = "/apis/qnadetail", produces = "application/json")
+	public @ResponseBody Object apiQnaDetail(@RequestBody Map<String, Object> param) {
+		
+		try {
+			Map<String, Object> getQnaDetail = memberService.getQnaDetail(param);
+			return getQnaDetail;
+			
+		} catch (Exception e) {
+			return e;
+		}
 	}
 	
 	@PostMapping (path = "/apis/login", produces = "application/json")

@@ -40,4 +40,9 @@ public class MemberServiceImpl implements MemberService{
 	public Map<String, Object> insertUser(Map<String, Object> param) throws SQLException {
 		return memberDAO.insertUser(param);
 	}
+	
+	@Override
+	public Map<String, Object> getQnaDetail(Map<String, Object> param) throws SQLException {
+		return memberDAO.getQnaDetail(param);
+	}
 }

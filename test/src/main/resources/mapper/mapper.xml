@@ -11,8 +11,8 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getMainBoard" resultType="java.util.LinkedHashMap">
-		SELECT * FROM board
-		ORDER BY REG_DATE desc
+		SELECT * FROM qna_board
+		ORDER BY QNA_DATE desc
 		LIMIT 10
 	</select>
 	 
@@ -32,7 +32,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	</insert>
 	
 	<select id="getQnaDetail" parameterType="Map" resultType="Map">
-		SELECT * FROM board
-		WHERE NO = #{no}
+		SELECT * FROM qna_board
+		WHERE QNA_NO = #{no}
 	</select>
 </mapper>

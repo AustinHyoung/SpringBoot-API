@@ -75,13 +75,27 @@ public class MemberController {
 		
 	}
 	
-	@RequestMapping (path = "/apis/board", produces = "application/json")
-	public @ResponseBody Object apiBoard() {
+	@RequestMapping (path = "/apis/qnaboard", produces = "application/json")
+	public @ResponseBody Object apiQnaBoard() {
 		Map<String, Object> res =  new HashMap<String, Object>();
 		try {
 			
-			List<Map<String, Object>> getMainBoard = memberService.getMainBoard();
+			List<Map<String, Object>> getMainBoard = memberService.getQnaBoard();
 			return getMainBoard;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return e;
+		}
+		
+	}
+	
+	@RequestMapping (path = "/apis/qnareply", produces = "application/json")
+	public @ResponseBody Object apiQnaReply(@RequestBody Map<String, Object> param) {
+		Map<String, Object> res =  new HashMap<String, Object>();
+		try {
+			
+			List<Map<String, Object>> getQnaReply = memberService.getQnaReply(param);
+			return getQnaReply;
 		}catch(Exception e) {
 			e.printStackTrace();
 			return e;

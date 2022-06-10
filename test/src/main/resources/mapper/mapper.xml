@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		ORDER BY ID ASC
 	</select>
 	
-	<select id="getMainBoard" resultType="java.util.LinkedHashMap">
+	<select id="getQnaBoard" resultType="java.util.LinkedHashMap">
 		SELECT * FROM qna_board
 		ORDER BY QNA_DATE desc
 		LIMIT 10
@@ -33,6 +33,12 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	
 	<select id="getQnaDetail" parameterType="Map" resultType="Map">
 		SELECT * FROM qna_board
-		WHERE QNA_NO = #{no}
+		WHERE QNA_NO = #{qnaNo}
+	</select>
+	
+	<select id="getQnaReply" parameterType="Map" resultType="Map">
+		SELECT * FROM qna_reply
+		WHERE QNA_REPLY_BOARD_NO = #{qnaNo}
+		ORDER BY QNA_REPLY_DATE asc
 	</select>
 </mapper>

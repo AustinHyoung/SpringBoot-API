@@ -12,7 +12,10 @@ public interface MemberService {
 	public List<Map<String, Object>> getMember() throws SQLException;
 	
 	@Transactional
-	public List<Map<String, Object>> getMainBoard() throws SQLException;
+	public List<Map<String, Object>> getQnaBoard() throws SQLException;
+	
+	@Transactional
+	public List<Map<String, Object>> getQnaReply(Map<String, Object> param) throws SQLException;
 	
 	@Transactional
 	public Map<String, Object> getUser(Map<String, Object> param) throws SQLException;

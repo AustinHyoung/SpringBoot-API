@@ -12,14 +12,14 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	
 	<select id="getQnaBoard" resultType="java.util.LinkedHashMap">
 		SELECT * FROM qna_board
-		ORDER BY QNA_DATE desc
+		ORDER BY QNA_NO desc
 		LIMIT 10
 	</select>
 	
 	<select id="getQnaPagingBoard" resultType="Map">
 		SELECT * FROM qna_board
-		ORDER BY QNA_DATE desc
-		LIMIT 25
+		ORDER BY QNA_NO desc
+		
 	</select>
 	 
 	<select id="getUser" parameterType="Map" resultType="Map">

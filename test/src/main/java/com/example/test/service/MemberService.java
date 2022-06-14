@@ -15,6 +15,9 @@ public interface MemberService {
 	public List<Map<String, Object>> getQnaBoard() throws SQLException;
 	
 	@Transactional
+	public List<Map<String, Object>> getQnaPagingBoard() throws SQLException;
+	
+	@Transactional
 	public List<Map<String, Object>> getQnaReply(Map<String, Object> param) throws SQLException;
 	
 	@Transactional

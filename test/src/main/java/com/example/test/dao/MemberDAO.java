@@ -25,6 +25,11 @@ public class MemberDAO {
 		return sqlSession.selectList("UMemberDAO.getQnaBoard");
 	}
 	
+	@Transactional
+	public List<Map<String, Object>> getQnaPagingBoard() throws SQLException {
+		return sqlSession.selectList("UMemberDAO.getQnaPagingBoard");
+	}
+	
 	//게시글의 답글 가져오기
 	@Transactional
 	public List<Map<String, Object>> getQnaReply(Map<String, Object> param) throws SQLException {

@@ -27,6 +27,11 @@ public class MemberServiceImpl implements MemberService{
 	}
 	
 	@Override
+	public List<Map<String, Object>> getQnaPagingBoard() throws SQLException {
+		return memberDAO.getQnaPagingBoard();
+	}
+	
+	@Override
 	public List<Map<String, Object>> getQnaReply(Map<String, Object> param) throws SQLException {
 		return memberDAO.getQnaReply(param);
 	}

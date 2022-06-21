@@ -51,4 +51,13 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<insert id="insertReply" parameterType="Map">
 		INSERT INTO qna_reply VALUES(null, #{replyBoardNo}, #{replyWriter}, #{replyContents}, now())
 	</insert>
+	
+	<select id="getQnaViewCnt" parameterType="Map" resultType="int">
+		SELECT qna_view FROM qna_board
+		WHERE qna_no = #{qnaNo}
+	</select>
+	
+	<update id="updateQnaViewCnt" parameterType="Map">
+		UPDATE qna_board SET qna_view = #{qnaViewCnt} WHERE qna_no = #{qnaNo}
+	</update>
 </mapper>

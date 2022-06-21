@@ -1,5 +1,6 @@
 package com.example.test.controller;
 
+import java.io.Console;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -210,7 +211,7 @@ public class MemberController {
 	}
 	
 	@PostMapping (path = "/apis/logout", produces = "application/json")
-	public @ResponseBody Object apiLogout(HttpServletRequest request, Model model, HttpSession session) {
+	public @ResponseBody Object apiLogout(HttpServletRequest request, HttpSession session) {
 		
 		
 		Map<String, Object> res = new HashMap<String, Object>();
@@ -225,6 +226,33 @@ public class MemberController {
 			res.put("code", HttpStatus.INTERNAL_SERVER_ERROR.value());
 			
 			return res;
+		}
+		
+	}
+	
+	@PostMapping (path = "/apis/qnaViewCnt", produces = "application/json")
+	public @ResponseBody Object apiQnaViewCnt(@RequestBody Map<String, Object> param, HttpSession session) {
+		
+		try {
+			
+			Map<String, Object> paramMap = new HashMap<String, Object>();
+			
+			int cnt = memberService.getQnaViewCnt(param) + 1;
+			int qnaNo = Integer.parseInt(param.get("qnaNo").toString());
+			System.out.println(qnaNo);
+			
+			paramMap.put("qnaViewCnt", cnt);
+			paramMap.put("qnaNo", qnaNo);
+			
+			memberService.updateQnaViewCnt(paramMap);
+			
+			int cntAddOne = memberService.getQnaViewCnt(param);
+			
+			return cntAddOne;
+		}catch(Exception e) {
+			
+			e.printStackTrace();
+			return e;
 		}
 		
 	}

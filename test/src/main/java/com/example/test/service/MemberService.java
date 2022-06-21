@@ -26,12 +26,18 @@ public interface MemberService {
 	@Transactional
 	public int userCnt(Map<String, Object> param) throws SQLException;
 	
+	@Transactional
+	public int getQnaViewCnt(Map<String, Object> param) throws SQLException;
 	
 	@Transactional
-	public Map<String, Object> insertUser(Map<String, Object> param) throws SQLException;
+	public void updateQnaViewCnt(Map<String, Object> param) throws SQLException;
+	
 	
 	@Transactional
-	public Map<String, Object> insertReply(Map<String, Object> param) throws SQLException;
+	public void insertUser(Map<String, Object> param) throws SQLException;
+	
+	@Transactional
+	public void insertReply(Map<String, Object> param) throws SQLException;
 	
 	@Transactional
 	public Map<String, Object> getQnaDetail(Map<String, Object> param) throws SQLException;

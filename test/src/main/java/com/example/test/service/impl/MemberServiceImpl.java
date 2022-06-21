@@ -52,6 +52,11 @@ public class MemberServiceImpl implements MemberService{
 	}
 	
 	@Override
+	public Map<String, Object> insertReply(Map<String, Object> param) throws SQLException {
+		return memberDAO.insertReply(param);
+	}
+	
+	@Override
 	public Map<String, Object> getQnaDetail(Map<String, Object> param) throws SQLException {
 		return memberDAO.getQnaDetail(param);
 	}

@@ -47,4 +47,8 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		WHERE QNA_REPLY_BOARD_NO = #{qnaNo}
 		ORDER BY QNA_REPLY_DATE asc
 	</select>
+	
+	<insert id="insertReply" parameterType="Map">
+		INSERT INTO qna_reply VALUES(null, #{replyBoardNo}, #{replyWriter}, #{replyContents}, now())
+	</insert>
 </mapper>

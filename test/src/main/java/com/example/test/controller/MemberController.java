@@ -162,14 +162,33 @@ public class MemberController {
 		
 	}
 	
+	@PostMapping (path = "/apis/replyInsert", produces = "application/json")
+	public @ResponseBody Object apiReplyInsert(@RequestBody Map<String, Object> param, HttpSession session) {
+		
+		Map<String, Object> res = new HashMap<String, Object>();
+		
+		try {
+			
+			memberService.insertReply(param);
+			res.put("msg", "답변 등록 완료");
+			
+			return res;
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			
+			return e;
+		}
+	}
+	
 	@PostMapping (path = "/apis/signup", produces = "application/json")
 	public @ResponseBody Object apiSignup(@RequestBody Map<String, Object> param, HttpSession session) {
 		
 		System.out.println(param);
-		
+		Map<String, Object> res = new HashMap<String, Object>();
 		try {
 			
-			Map<String, Object> res = new HashMap<String, Object>();
+			
 			int userCnt = memberService.userCnt(param);
 
 			if(userCnt >= 1) {

@@ -52,6 +52,11 @@ public class MemberDAO {
 	}
 	
 	@Transactional
+	public Map<String, Object> insertReply (Map<String, Object> param) throws SQLException {
+		return (Map<String, Object>) sqlSession.selectOne("UMemberDAO.insertReply", param);
+	}
+	
+	@Transactional
 	public Map<String, Object> getQnaDetail (Map<String, Object> param) throws SQLException {
 		return (Map<String, Object>) sqlSession.selectOne("UMemberDAO.getQnaDetail", param);
 	}

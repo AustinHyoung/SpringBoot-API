@@ -1,6 +1,8 @@
 package com.example.test.controller;
 
 import java.io.Console;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -124,9 +126,6 @@ public class MemberController {
 		try {
 			Map<String, Object> getQnaDetail = memberService.getQnaDetail(param);
 			
-			String dateStr = getQnaDetail.get("QNA_DATE").toString();
-			dateStr = dateStr.replace("T", " ");
-			getQnaDetail.put("QNA_DATE", dateStr);
 			return getQnaDetail;
 			
 		} catch (Exception e) {

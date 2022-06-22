@@ -123,6 +123,10 @@ public class MemberController {
 		
 		try {
 			Map<String, Object> getQnaDetail = memberService.getQnaDetail(param);
+			
+			String dateStr = getQnaDetail.get("QNA_DATE").toString();
+			dateStr = dateStr.replace("T", " ");
+			getQnaDetail.put("QNA_DATE", dateStr);
 			return getQnaDetail;
 			
 		} catch (Exception e) {
